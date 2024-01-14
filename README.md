@@ -9,7 +9,7 @@ Django TODO APP to manage todo-lists and to-do items inside every list.
 
 ### Setting up the project 👷
 
-åClone the repository and navigate to its directory:
+Clone the repository and navigate to its directory:
 
     $ git clone https://github.com/khouzamya/todo-app.git
     $ docker build -t todo-python .
