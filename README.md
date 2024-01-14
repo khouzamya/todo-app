@@ -22,7 +22,7 @@ The default username and password for the super user are:
 
 Use Django admin console to create more users
 
-To make the application simpler, Django debug is enabled ( django server can serve static files for admin console)
+To make the application simpler, Django debug is enabled ( Django server can serve static files for admin console)
 
 
 ### APIS
