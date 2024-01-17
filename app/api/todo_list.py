@@ -10,7 +10,6 @@ from django.db.models import Prefetch
 class TodoCreateList(generics.ListCreateAPIView):
 	permission_classes = (IsAuthenticated,)
 	authentication_classes = [JWTAuthentication]
-	queryset = TodoList.objects.all().select_related('user')
 	serializer_class = TodoCreateListSerializer
 	filter_backends = [filters.SearchFilter,filters.OrderingFilter]
 	search_fields = ['title','user__username']
@@ -23,7 +22,6 @@ class TodoCreateList(generics.ListCreateAPIView):
 class TodoDetailList(generics.RetrieveUpdateDestroyAPIView):
 	permission_classes = (IsAuthenticated,)
 	authentication_classes = [JWTAuthentication]
-	queryset = TodoList.objects.all().prefetch_related('todoitem')
 	serializer_class = TodoDetailListSerializer
 	def get_queryset(self):
 		return TodoList.objects.filter(deleted_at=None).prefetch_related(Prefetch('todoitem',queryset=TodoItem.objects.filter(deleted_at=None)))
